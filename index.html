@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me kanna? ❤️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffebee;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: #d32f2f;
+            margin-bottom: 30px;
+        }
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+        #yesBtn {
+            background-color: #4caf50;
+            color: white;
+        }
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+            position: relative;
+        }
+        .hidden {
+            display: none;
+        }
+        .message {
+            font-size: 24px;
+            color: #d32f2f;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Do you love me Kanna? ❤️</h1>
+        <button id="yesBtn" class="btn">YES</button>
+        <button id="noBtn" class="btn">NO</button>
+        <p id="message" class="message hidden">Yay! I love you too! No, I love u more! 😘❤️</p>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const message = document.getElementById('message');
+        let yesSize = 1;
+
+        noBtn.addEventListener('mouseover', () => {
+            // Make the NO button move away when hovered
+            noBtn.style.transform = `translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px)`;
+            
+            // Make the YES button bigger
+            yesSize += 0.2;
+            yesBtn.style.transform = `scale(${yesSize})`;
+            yesBtn.style.padding = `${15 + yesSize * 5}px ${30 + yesSize * 10}px`;
+        });
+
+        yesBtn.addEventListener('click', () => {
+            message.classList.remove('hidden');
+            yesBtn.classList.add('hidden');
+            noBtn.classList.add('hidden');
+        });
+
+        noBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default click behavior
+            noBtn.style.transform = `translate(${Math.random() * 300 - 150}px, ${Math.random() * 300 - 150}px)`;
+            
+            // Make YES even bigger
+            yesSize += 0.5;
+            yesBtn.style.transform = `scale(${yesSize})`;
+            yesBtn.style.padding = `${15 + yesSize * 5}px ${30 + yesSize * 10}px`;
+        });
+    </script>
+</body>
+</html>
